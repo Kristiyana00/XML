@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Задача 4: Използвайки CDATA секции съставете xml файл структуриращ информацията (относно логическите оператори в Excel) дадена в таблицата по-долу:-->
+<!-- Създаваме root елемент ExcelLogicalOperators.-->
+<ExcelLogicalOperators>
+    <!-- Създаваме поделементите ExcelLogicalOperator за всеки condition от условието на задачата.-->
+    <ExcelLogicalOperator>
+        <!-- Създаваме поделемента Condition, който показва съответната операция.-->
+        <Condition>Equal to</Condition>
+        <!-- Създаваме поделемента Operator, който показва съответния оператор.-->
+        <Operator>=</Operator>
+        <!-- Създаваме поделемента FormulaExample, който показва пример за използването на съответния оператор.-->
+        <FormulaExample>=A1=B1</FormulaExample>
+        <!-- Създаваме поделемента Description, който описва начина на използване на съответния оператор.-->
+        <Description>The formula returns TRUE if a value in cell A1 is equal to the values in cell B1; FALSE otherwise.</Description>
+    <!-- Затварящ таг на елемента ExcelLogicalOperator-->
+    </ExcelLogicalOperator>
+    <!-- Аналогично е и за всички останали операции от условието на задачата.-->
+    <ExcelLogicalOperator>
+        <Condition>Not equal to</Condition>
+        <!-- Използваме <![CDATA[]]>, за да може информацията в скобите да се игнорира от парсъра
+        при използване на специални XML знаци.-->
+        <Operator><![CDATA[<>]]></Operator>
+        <FormulaExample><![CDATA[=A1<>B1]]></FormulaExample>
+        <Description>The formula returns TRUE if a value in cell A1 is not equal to the value in cell B1; FALSE otherwise.</Description>
+    </ExcelLogicalOperator>
+    <ExcelLogicalOperator>
+        <Condition>Greater than</Condition>
+        <Operator><![CDATA[>]]></Operator>
+        <FormulaExample><![CDATA[=A1>B1]]></FormulaExample>
+        <Description>The formula returns TRUE if a value in cell A1 is greater than a value in cell B1; otherwise it returns FALSE.</Description>
+    </ExcelLogicalOperator>
+    <ExcelLogicalOperator>
+        <Condition>Less than</Condition>
+        <Operator><![CDATA[<]]></Operator>
+        <FormulaExample><![CDATA[=A1<B1]]></FormulaExample>
+        <Description>The formula returns TRUE if a value in cell A1 is less than in cell B1; FALSE otherwise.</Description>
+    </ExcelLogicalOperator>
+    <ExcelLogicalOperator>
+        <Condition>Greater than or equal to</Condition>
+        <Operator><![CDATA[>=]]></Operator>
+        <FormulaExample><![CDATA[=A1>=B1]]></FormulaExample>
+        <Description>The formula returns TRUE if a value in cell A1 is greater than or equal to the values in cell B1; FALSE otherwise.</Description>
+    </ExcelLogicalOperator>
+    <ExcelLogicalOperator>
+        <Condition>Less than or equal to</Condition>
+        <Operator><![CDATA[<=]]></Operator>
+        <FormulaExample><![CDATA[=A1<=B1]]></FormulaExample>
+        <Description>The formula returns TRUE if a value in cell A1 is less than or equal to the values in cell B1; FALSE otherwise.</Description>
+    </ExcelLogicalOperator>
+    <!-- Затварящ таг на root елемента ExcelLogicalOperators.-->
+</ExcelLogicalOperators>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="ISO-8859-1"?>-->
+<!-- Задача 6: Създайте xml файл и използвайте правилния encoding, за да представите по-долу дадените изрази.
+Пробвайте във вашия браузер как тези изрази ще бъдат представени ако използвате encoding ISO-8859-1-->
+<!-- Създаваме root елемента Expressions.-->
+<Expressions>
+    <!-- За всеки израз създаваме поделемент Expression на root елемента Expressions.-->
+    <!-- Всеки израз има атрибут id, който отговаря на неговия номер.-->
+    <!-- Използваме encoding "UTF-8", за да представим правилно изразите.-->
+    <!-- При използване на encoding "ISO-8859-1", символите не се интерпретираха правилно.-->
+    <Expression id="1">∀ x ∈ {y-10, y+10} ∃ i</Expression>
+    <Expression id="2">Einführung</Expression>
+    <Expression id="3">Γεια Γιάννη</Expression>
+    <Expression id="4">嗨你好</Expression>
+    <!-- Затварящ таг на root елемента Expressions.-->
+</Expressions>

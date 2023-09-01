@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Използваме пространство от имена с префикс rdf.-->
+<!-- Създаваме RDF документ по таблицата в условието с root елемент RDF.-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cd="http://www.myshop.bg/cd#">
+    <!-- Създаваме елемент Description за Unchain my heart.
+    Използваме rdf:about - URI на ресурс, определен от метаданни.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Unchain my heart">
+        <!-- Създаваме елементите artist, country, company, price, year 
+        и ги използваме като свойства на ресурса. Попълваме данните спрямо таблицата.-->
+        <cd:artist>Joe Cocker</cd:artist>
+        <cd:country>USA</cd:country>
+        <cd:company>EMI</cd:company>
+        <cd:price>8.20</cd:price>
+        <cd:year>1987</cd:year>
+    </rdf:Description>
+    <!-- Създаваме елемент Description за Pavarptti Gala Concert.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Pavarotti Gala Concert">
+        <!-- Създаваме елементите artist, country, company, price, year 
+        и ги използваме като свойства на ресурса. Попълваме данните спрямо таблицата.-->
+        <cd:artist>Luciano Pavarotti</cd:artist>
+        <cd:country>UK</cd:country>
+        <cd:company>DECCA</cd:company>
+        <cd:price>9.90</cd:price>
+        <cd:year>1991</cd:year>
+    </rdf:Description>
+    <!-- Създаваме елемент Description за Soulsville.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Soulsville">
+        <!-- Създаваме елементите artist, country, company, price, year 
+        и ги използваме като свойства на ресурса. Попълваме данните спрямо таблицата.-->
+        <cd:artist>Jorn Hoel</cd:artist>
+        <cd:country>Norway</cd:country>
+        <cd:company>WEA</cd:company>
+        <cd:price>7.90</cd:price>
+        <cd:year>1996</cd:year>
+    </rdf:Description>
+</rdf:RDF>

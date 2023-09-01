@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<!-- Задача 2: За дадения по-долу XML документ създайте DTD граматика и го валидирайте спрямо нея.-->
+
+<!-- Създаваме вътрешно DTD за XML файла с root елемент games.-->
+<!DOCTYPE games [
+    <!-- Декларираме елемента games, който има поделемент game.
+    Поделементът game може да се среща 0 или повече пъти.-->
+    <!ELEMENT games (game)*>
+    <!-- Декларираме елемента game, който има поделементи home-team, ex-team, scores, yellows, reds.-->
+    <!ELEMENT game (home-team, ex-team, scores, yellows, reds)>
+    <!-- Декларираме атрибут score на елемента game, който е задължителен и е от тип CDATA.-->
+    <!ATTLIST game score CDATA #REQUIRED>
+    <!-- Декларираме атрибут me на елемента score, който е задължителен и е от тип CDATA.-->
+    <!ATTLIST score me CDATA #REQUIRED>
+    <!-- Декларираме атрибут type на елемента score, който не е задължителен и има стойност penalty или num.-->
+    <!ATTLIST score type (penalty|num) #IMPLIED>
+    <!-- Декларираме елемента home-team.-->
+    <!ELEMENT home-team (#PCDATA)>
+    <!-- Декларираме елемента ex-team.-->
+    <!ELEMENT ex-team (#PCDATA)>
+    <!-- Декларираме елемента scores, който има поделемент score, който може да се среща 0 или повече пъти.-->
+    <!ELEMENT scores (score)*>
+    <!-- Декларираме елемента score, който има поделемент player, който може да се среща 0 или повече пъти.-->
+    <!ELEMENT score (player)*>
+    <!-- Декларираме елемента yellows, който има поделемент player, който може да се среща 0 или повече пъти.-->
+    <!ELEMENT yellows (player)*>
+    <!-- Декларираме елемента reds, който има поделемент player, който може да се среща 0 или повече пъти.-->
+    <!ELEMENT reds (player)*>
+    <!-- Декларираме елемента player.-->
+    <!ELEMENT player (#PCDATA)>
+]>
+
+<games>
+    <game score="1-1">
+           <home-team>Roma</home-team>
+           <ex-team>Lazio</ex-team>
+           <scores>
+              <score me="15">
+              <player>Klose</player>
+              </score>
+              <score me="85" type="penalty">
+              <player>Tox</player>
+              </score>
+           </scores>
+        <yellows>
+           <player>Tox</player>
+           <player>Hernanes</player>
+        </yellows>
+        <reds>
+           <player>Kjaer</player>
+        </reds>
+    </game>
+</games>

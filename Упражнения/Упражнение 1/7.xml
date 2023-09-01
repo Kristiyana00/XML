@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Задача 7: Като използвате пространство от имена обединете дадените по-долу 2 xml
+файла в един документ-->
+<!-- Създаваме root елемента authors:record-->
+<!-- Използваме пространство от имена, за да разграничим XML елементи, които имат едно и също име.
+В случая имаме на две места title. Чрез xmlns задаваме пространство от имена.-->
+<authors:record xmlns:books="http://www.books.bg" xmlns:authors="http://www.authors.com">
+    <!-- Създаваме поделемента name, който отговаря за името.-->
+    <authors:name>Miller</authors:name>
+    <!-- Създаваме поделемента title, който отговаря за обръщението.-->
+    <authors:title>Dr.</authors:title>
+    <!-- Създаваме поделемента publications, който отговаря за публикациите на съответния автор.-->
+    <authors:publications>
+        <!-- Създаваме поделемента book, който дава информация за всяка книга.-->
+        <books:book>
+            <!-- Елементът title отговаря за заглавието на книгата.-->
+            <books:title>A true story</books:title>
+            <!-- Елементът description отговаря за описанието на книгата.-->
+            <books:description>A real cool publication</books:description>
+            <!-- Затварящ таг на елемента book.-->
+        </books:book>
+    <!-- Затварящ таг за елемента publications.-->
+    </authors:publications>
+<!-- Затварящ таг за елемента record.-->
+</authors:record>

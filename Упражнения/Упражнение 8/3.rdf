@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Като използваме вече създадения rdf документ в задача 2, заменяме елементите artist, country, company, price и year
+с атрибути като свойства на ресурса.-->
+<!-- Използваме пространство от имена с префикс rdf и cd.-->
+<!-- Създаваме root елемента RDF.-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cd="http://www.myshop.bg/cd#">
+    <!-- Създаваме елемента Description за Unchain My Heart, който има атрибути artist, country, company, price, year.
+    Всеки атрибут представяме като свойство на ресурса.
+    Съответните линкове вземаме от условието.
+    Използваме rdf:about - URI на ресурс, определен от метаданни.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Unchainmyheart#" 
+                    cd:artist="http://www.myshop.bg/cd/Unchainmyheart/JoeCocker"
+                    cd:country="http://www.myshop.bg/cd/Unchainmyheart/USA"
+                    cd:company="http://www.myshop.bg/cd/Unchainmyheart/EMI"
+                    cd:price="http://www.myshop.bg/cd/Unchainmyheart/8.20"
+                    cd:year="http://www.myshop.bg/cd/Unchainmyheart/1987"
+    />
+    <!-- Създаваме елемента Description за Pavarotti Gala Concert, който има атрибути artist, country, company, price, year.
+    Всеки атрибут представяме като свойство на ресурса.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/PavarottiGalaConcert#" 
+                    cd:artist="http://www.myshop.bg/cd/PavarottiGalaConcert/LucianoPavarotti"
+                    cd:country="http://www.myshop.bg/cd/PavarottiGalaConcert/UK"
+                    cd:company="http://www.myshop.bg/cd/PavarottiGalaConcert/DECCA"
+                    cd:price="http://www.myshop.bg/cd/PavarottiGalaConcert/9.90"
+                    cd:year="http://www.myshop.bg/cd/PavarottiGalaConcert/1991"
+    />
+    <!-- Създаваме елемента Description за Soulsville, който има атрибути artist, country, company, price, year.
+    Всеки атрибут представяме като свойство на ресурса.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Soulsville#" 
+                    cd:artist="http://www.myshop.bg/cd/Soulsville/JornHoel"
+                    cd:country="http://www.myshop.bg/cd/Soulsville/Norway"
+                    cd:company="http://www.myshop.bg/cd/Soulsville/WEA"
+                    cd:price="http://www.myshop.bg/cd/Soulsville/7.90"
+                    cd:year="http://www.myshop.bg/cd/Soulsville/1996"
+    />
+</rdf:RDF>

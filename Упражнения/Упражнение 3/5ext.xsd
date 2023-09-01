@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!-- Създаваме XML схема. Създаваме пространство от имена.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+    <!-- Редефинираме дадения xsd файл.-->
+   <xs:redefine schemaLocation="5.xsd">
+       <!-- Променяме рестрикцията на минималния баланс по сметката да е -5200.-->
+   	   <xs:simpleType name="minBalance"> 
+   	   	   <xs:restriction base="minBalance"> 
+   	   	   	   <xs:minInclusive value="-5200"/> 
+   	   	   </xs:restriction> 
+   	   </xs:simpleType> 
+        <!-- Добавяме нов елемент customerExt, който разширява customerExt.
+        Добавяме да има поделемент image от тип image.-->
+   	   <xs:complexType name="customerExt"> 
+   	   	   <xs:complexContent> 
+   	   	   	   <xs:extension base="customerExt"> 
+   	   	   	   	   <xs:sequence> 
+   	   	   	   	   	   <xs:element name="image" type="image"/>
+   	   	   	   	   </xs:sequence> 
+   	   	   	   </xs:extension> 
+   	   	   </xs:complexContent> 
+   	   </xs:complexType> 
+   </xs:redefine> 
+
+   <!-- Създаваме нотация на gif и jpeg.-->
+   <xs:notation name="gif" public="image/gif" system="view.exe"/> 
+   <xs:notation name="jpeg" public="image/jpeg" system="view.exe"/> 
+
+   <!-- Декларираме елемента image, който има атрибути src и type, които са задължителни.-->
+   <xs:complexType name="image"> 
+   	   <xs:simpleContent> 
+   	   	   <xs:extension base="xs:base64Binary"> 
+               <!-- Декларираме атрибут src от тип string, който е задължителен.-->
+   	   	   	   <xs:attribute name="src" type="xs:string" use="required"/>
+               <!-- Декларираме атрибут type, който е задължителен и е от тип нотация.-->
+			   <xs:attribute name="type" use="required">
+			   		<xs:simpleType>
+						<xs:restriction base="xs:NOTATION">
+                            <!-- Задаваме value.-->
+							<xs:enumeration value="gif"/>
+							<xs:enumeration value="jpeg"/>
+						</xs:restriction>
+					</xs:simpleType>
+			   </xs:attribute> 
+   	   	   </xs:extension> 
+   	   </xs:simpleContent> 
+   </xs:complexType> 
+</xs:schema>

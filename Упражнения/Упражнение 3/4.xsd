@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Създаваме XML схема. Създаваме пространство от имена. Аргументът elementFormDefault="qualified" декларира, че
+     всички имена на елементи от XML екземплярите на тази
+     схема трябва да бъдат асоциирани с пространство от имена-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- От условието => добавяме анотация.-->  
+    <xs:annotation> 
+        <xs:documentation xml:lang="en"> 
+            Some documentation here. 
+        </xs:documentation> 
+    </xs:annotation> 
+
+    <!-- Декларираме root елемента с име bank.-->
+    <xs:element name="bank" type="bankInfo"/>
+    <!-- Дефинираме елемента bankInfo. Задаваме complexType mixed=true => елементът може да съдържа, както текст, така и други елементи.-->
+    <xs:complexType name="bankInfo" mixed="true">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме елемента accounts, който участва минимум 1 път.-->
+            <xs:element name="accounts" minOccurs="1">
+                <xs:complexType>
+                    <!-- All се използва, когато подредбата на поделементите няма значение.-->
+                    <xs:all>
+                        <!-- Декларираме елемента saving_accounts от тип savingAccounts.-->
+                        <xs:element name="saving_accounts" type="savingAccounts"/>
+                        <!-- Декларираме елемента checking_accounts от тип checkingAccounts.-->
+                        <xs:element name="checking_accounts" type="checkingAccounts"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+            <!-- Декларираме елемента customers, който е от тип customers 
+            и се среща минимум 1 път.-->
+            <xs:element name="customers" type="customers" minOccurs="1"/>
+            <!-- Декларираме елемента customer_accounts, който се среща минимум 1 път.-->
+            <xs:element name="customer_accounts" minOccurs="1">
+                <xs:complexType>
+                    <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+                    <xs:sequence>
+                        <!-- Декларираме елемента customer_account, който има атрибути c_id и ac_id, които са задължителни.
+                        Customer_account може да се среща 1 или повече пъти.-->
+                        <xs:element name="customer_account" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <!-- Декларираме атрибута c_id от тип IDREF, който е задължителен.-->
+                                <xs:attribute name="c_id" type="xs:IDREF" use="required"/>
+                                <!-- Декларираме атрибута ac_id от тип IDREF, който е задължителен.-->
+                                <xs:attribute name="ac_id" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Декларираме елемента customers.-->
+    <xs:complexType name="customers">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме елемента customer от тип customerExt, който може да се среща 1 или повече пъти.-->
+            <xs:element name="customer" type="customerExt" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Ново условие -->
+
+    <!-- Декларираме елемента customerInfo, който има поделементи name, address и postalCode, които са в точно определен ред.-->
+    <xs:complexType name="customerInfo">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме елемента name от тип string.-->
+            <xs:element name="name" type="xs:string"/>
+            <!-- Декларираме елемента address от тип string.-->
+            <xs:element name="address" type="xs:string"/>
+            <!-- Декларираме елемента postalCode, който трябва да отговаря на зададения регулярен израз.-->
+            <xs:element name="postalCode">
+                <xs:simpleType>
+                    <!-- Рестрикция.-->
+                    <xs:restriction base="xs:string">
+                        <!-- Регулярен израз, на който да отговаря.-->
+                        <xs:pattern value="[0-9]{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+
+        <!-- Декларираме атрибута id, който е от тип ID и е задължителен.-->
+        <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+
+    <!-- Декларираме елемента customerExt, който разширява елемента customerInfo като добавя поделемент contacts.-->
+    <xs:complexType name="customerExt">
+        <xs:complexContent>
+            <!-- Разширява customerInfo.-->
+            <xs:extension base="customerInfo">
+                <xs:sequence>
+                    <!-- Декларираме елемента contacts, който е от тип contacts и учааства минимум 1 път.-->
+                    <xs:element name="contacts" type="contacts" minOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Декларираме елемента contacts, който има поделементи email и telephone.-->
+    <xs:complexType name="contacts">
+        <xs:sequence>
+            <!-- Декларираме елемента email, който трябва да отговаря на зададения регулярен израз.-->
+            <xs:element name="email">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <!-- Регулярен израз, който трябва да се спази.-->
+                        <xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <!-- Декларираме елемента telephone, който трябва да отговаря на зададения регулярен израз.-->
+            <xs:element name="telephone">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <!-- Регулярен израз, който трябва да се спази.-->
+                        <xs:pattern value="\+\d{2,3}-\d{2}-\d{3}-\d{2}-\d{2}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Край на новото условие. -->
+
+    <!-- Декларираме елемента savingAccounts, който има поделемент saving_account, срещащ се 1 или повече пъти.-->
+    <xs:complexType name="savingAccounts">
+        <xs:sequence>
+            <!-- Декларираме елемента saving_account от тип savingAccountInfo, който се среща 1 или повече пъти.-->
+            <xs:element name="saving_account" type="savingAccountInfo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Обединяваме минималния и максималния баланс на сметката.-->
+    <xs:simpleType name="bounds">
+        <!-- Обединение на двете граници.-->
+        <xs:union>
+            <!-- Задаваме долна граница на баланса.-->
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <!-- Балансът не може да бъде по-малък от -5000.-->
+                    <xs:minInclusive value="-5000"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <!-- Задаваме горна граница на баланса.-->
+            <xs:simpleType> 
+                <xs:restriction base="xs:integer">
+                    <!-- Балансът не може да надвишава 10000.-->
+                    <xs:maxInclusive value="10000"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType> 
+
+    <!-- Декларираме елемента savingAccountInfo, който има поделементи balance и атрибути - id и interest.-->
+    <xs:complexType name="savingAccountInfo">
+        <xs:sequence>
+            <!-- Декларираме елемента balance, който има тип bounds. Така балансът винаги ще е в границите.-->
+            <xs:element name="balance" type="bounds"/>
+        </xs:sequence>
+
+        <!-- Декларираме атрибута id от тип ID, който е задължителен.-->
+        <xs:attribute name="id" use="required" type="xs:ID"/>
+        <!-- Декларираме атрибута interest от тип decimal.-->
+        <xs:attribute name="interest" type="xs:decimal"/>
+    </xs:complexType>
+
+    <!-- Декларираме елемента checkingAccounts, който има поделемент checking_account, срещащ се 1 или повече пъти.-->
+    <xs:complexType name="checkingAccounts">
+        <xs:sequence>
+            <!-- Декларираме елемента checking_account от тип checkingAccountInfo, който може да се среща 1 или повече пъти.-->
+            <xs:element name="checking_account" type="checkingAccountInfo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Декларираме елемента checkingAccountInfo, който има поделемент balance и атрибут id, който е задължителен.-->
+    <xs:complexType name="checkingAccountInfo">
+        <xs:sequence>
+            <!-- Декларираме елемент balance от тип bounds. Така балансът винаги ще е в границите.-->
+            <xs:element name="balance" type="bounds"/>
+        </xs:sequence>
+        <!-- Декларираме атрибут id от тип ID, който е задължителен.-->
+        <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+</xs:schema>

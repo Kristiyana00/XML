@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- Задача 5: За дадената по-долу схема създайте DTD граматика и XML документ и го валидирайте спрямо нея. DTD граматиката трябва да изпълнява следните условия:-->
+
+<!-- Декларираме вътрешно DTD с root елемент channel.-->
+<!DOCTYPE channel [
+    <!-- Декларираме root елемента channel, който има поделементи item, title, link, image, language, description.
+    Поделементите item, title, link и description са задължителни, а image и language - не.
+    Поделемента item може да се среща много пъти (1 или повече) => използваме +.
+    Поделемента image може да се среща много пъти, но не е задължителен (0 или повече пъти) => използваме *.
+    Поделемента language може да се среща 0 или 1 пъти => използваме ?.-->
+    <!ELEMENT channel (item+, title, link, image*, language?, description)>
+    <!-- Декларираме елемента item, който има поделементи title, link и description.
+    Поделементът description не е задължителен и може да се среща 0 или 1 пъти.
+    Поделементите на item нямат определена последователност, затова описваме всички възможни варианти.-->
+    <!ELEMENT item ((title, link, description?) | (link, title, description?) |
+                    (title, description?, link) | (link, description?, title) |
+                    (description?, title, link) | (description?, link, title))>
+    <!-- Декларираме елементите title и link.-->
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT link (#PCDATA)>
+    <!-- Декларираме елемента image, който има поделементи title, link и url.
+    Поделементите нямат определена последователност, затова описваме всички възможни варианти.-->
+    <!ELEMENT image ((title, link, url) | (title, url, link) |
+                     (link, title, url) | (link, url, title) |
+                     (url, title, link) | (url, link, title))>
+    <!-- Декларираме елементите url, language и description.-->
+    <!ELEMENT url (#PCDATA)>
+    <!ELEMENT language (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!-- Декларираме атрибут version на елемента channel, който е задължителен и е от тип CDATA.-->
+    <!ATTLIST channel version CDATA #REQUIRED>
+]>
+
+<!-- Създаваме root елемента channel с атрибут version.-->
+<channel version="">
+    <!-- Създаваме поделемента item, който има поделементи title, link и description.-->
+    <item>
+        <!-- Създаваме поделементите title, link и description, които нямат определена последователност.-->
+        <title></title>
+        <link></link>
+        <description></description>
+    </item>
+    <!-- Създаваме поделементеа title.-->
+    <title></title>
+    <!-- Създаваме поделемента link.-->
+    <link></link>
+    <!-- Създаваме поделемента image, който има поделементи title, link и url.-->
+    <image>
+        <!-- Създаваме поделементите title, link и url, които нямат определена последователност.-->
+        <title></title>
+        <link></link>
+        <url></url>
+    </image>
+    <!-- Създаваме поделементите language и description.-->
+    <language></language>
+    <description></description>
+</channel>

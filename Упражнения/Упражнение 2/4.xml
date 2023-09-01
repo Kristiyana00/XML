@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Задача 4: За DTD граматиката, намираща се на адрес: http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd, създайте XML документ. Включете в XML документа дадената DTD граматика като публична и го валидирайте спрямо нея.-->
+
+<!-- Декларираме, че ще използваме външна публична грраматика DTD, която се намира на следния адрес.-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html> 
+   <head> 
+   	   <title></title> 
+   </head> 
+   <body></body> 
+</html>

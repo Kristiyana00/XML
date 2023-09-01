@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Създаваме root елемент Cinema с атрибут name.-->
+<Cinema name="Cinema City Paradise">
+    <!-- Създаваме поделемент Address, който дава информация за адреса на киното.-->
+    <Address>София, бул.Черни връх 100, в сградата на Paradise Center</Address>
+    <!-- Създаваме поделемент Telephone, който дава информация за телефонния номер за връзка с киното.-->
+    <Telephone>02 903 74 74</Telephone>
+    <!-- Създаваме поделемент Email, който оказва email адреса за връзка с киното.-->
+    <Email>info.paradise@cinemacity.bg</Email>
+    <!-- Създаваме поделемента Info, който дава подробна информация относно даденото кино.-->
+    <Info>
+        Мултиплекс Cinema City Парадайс разполага с:
+        -14 модерни киносалона с 2166 места
+        -първата 4DX зала в България
+        -съоражения за посетители в инвалидни колички
+        Посетителите на Парадайс център ползват 2 часа безплатен паркинг. За допълнителни 90 минути е необходимо
+        да валидирате талона си за паркиране на касите при закупувае на билет за кино.
+    </Info>
+    <!-- Създаваме поделемент Prices, който оказва цените на билетите в зависимост от деня и типа филм.-->
+    <Prices>
+        <!-- Описваме цените на всеки тип билет спрямо всеки ден от седмицата.-->
+        <!-- Описваме типовете филми и цените на техните билети за понеделник.-->
+        <Monday>
+            <!-- Създаваме поделемент CinemaHall, който има атрибут type.
+            Атрибутът оказва типа на филма - 2D, 3D, 4DX 2D, 4DX 3D.-->
+            <CinemaHall type="2D">
+                <!-- Поделемент Tickets, който държи информация за всички билети в дадена категория.-->
+                <Tickets>
+                    <!-- Поделемент Ticket, който дава информация за типа билет и неговата цена.-->
+                    <Ticket>
+                        <Type>Нормален билет</Type>
+                        <Price>10.90</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет</Type>
+                        <Price>8.40</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <!-- Аналогично описваме всички останали типове филми.-->
+            <CinemaHall type="3D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет без очила</Type>
+                        <Price>13.00</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Нормален билет с очила</Type>
+                        <Price>14.75</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет без очила</Type>
+                        <Price>10.50</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет с очила</Type>
+                        <Price>12.25</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <CinemaHall type="4DX 2D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет</Type>
+                        <Price>No information</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет</Type>
+                        <Price>No information</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <CinemaHall type="4DX 3D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет без очила</Type>
+                        <Price>19.00</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет с очила</Type>
+                        <Price>20.75</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет без очила</Type>
+                        <Price>16.50</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет с очила</Type>
+                        <Price>18.25</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+        </Monday>
+        <!-- Описваме типовете филми и цените на техните билети за вторник.-->
+        <Tuesday>
+            <CinemaHall type="2D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет</Type>
+                        <Price>10.90</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет</Type>
+                        <Price>8.40</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <CinemaHall type="3D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Промо без очила</Type>
+                        <Price>8.50</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Промо с очила</Type>
+                        <Price>10.25</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <CinemaHall type="4DX 2D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет</Type>
+                        <Price>No information</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет</Type>
+                        <Price>No information</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+            <CinemaHall type="4DX 3D">
+                <Tickets>
+                    <Ticket>
+                        <Type>Нормален билет без очила</Type>
+                        <Price>19.00</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет с очила</Type>
+                        <Price>20.75</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет без очила</Type>
+                        <Price>16.50</Price>
+                    </Ticket>
+                    <Ticket>
+                        <Type>Намален билет с очила</Type>
+                        <Price>18.25</Price>
+                    </Ticket>
+                </Tickets>
+            </CinemaHall>
+        </Tuesday>
+        <!-- Описваме аналогично типовете филми и цените на техните билети за всеки следващ ден от седмицата.-->
+        <Wednesday></Wednesday>
+        <Thursday></Thursday>
+        <Friday></Friday>
+        <Saturday></Saturday>
+        <Sunday></Sunday>
+    <!-- Затварящ таг на елемента Prices.-->
+    </Prices>
+    <!-- Създаваме елемент CinameProjections, който държи в себе си информация за всички заглавия,
+    както и за датите и часовете на прожекциите.-->
+    <CinemaProjections>
+        <!-- Елементът CinemaProjection дава информация за съответното заглавие.-->
+        <CinemaProjection>
+            <!-- Загалвие на филма.-->
+            <Title>Escape Room 2: Без изход</Title>
+            <!-- Информация за всички прожекциите - ден и час на излъчване.-->
+            <Projections>
+                <!-- Информация за съответната прожекция.-->
+                <Projection>
+                    <!-- Ден на прожекцията.-->
+                    <Date>13 октомври (сряда)</Date>
+                    <!-- Създаваме поделемента Hours, който държи в себе си информация
+                    за всички часове, в които се излъчва дадено заглавие.-->
+                    <Hours>
+                        <Hour>21:10</Hour>
+                    </Hours>
+                </Projection>
+                <!-- Аналогично правим и за останалите дни.-->
+                <Projection>
+                    <Date>14 октомври (четвъртък)</Date>
+                    <Hours>
+                        <Hour>21:10</Hour>
+                    </Hours>
+                </Projection>
+            </Projections>
+        </CinemaProjection>
+        <!-- Аналогично и за останалите заглавия, които се излъчват в момента.-->
+        <CinemaProjection>
+            <Title>Бебе Бос: Семейни работи</Title>
+            <Projections>
+                <Projection>
+                    <Date>13 октомври (сряда)</Date>
+                    <Hours>
+                        <Hour>13:40</Hour>
+                        <Hour>15:50</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>14 октомври (четвъртък)</Date>
+                    <Hours>
+                        <Hour>13:40</Hour>
+                        <Hour>15:50</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>15 октомври (петък)</Date>
+                    <Hours>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>16 октомври (събота)</Date>
+                    <Hours>
+                        <Hour>12:20</Hour>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>17 октомври (неделя)</Date>
+                    <Hours>
+                        <Hour>12:20</Hour>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>18 октомври (понеделник)</Date>
+                    <Hours>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>19 октомври (вторник)</Date>
+                    <Hours>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>20 октомври (сряда)</Date>
+                    <Hours>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+                <Projection>
+                    <Date>21 октомври (четвъртък)</Date>
+                    <Hours>
+                        <Hour>15:40</Hour>
+                    </Hours>
+                </Projection>
+            </Projections>
+        </CinemaProjection>
+    <!-- Затварящ таг на CinemaProjections.-->
+    </CinemaProjections>
+<!-- Затварящ таг на root елемента Cinema.-->
+</Cinema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Задача 7: Да се включи в DTD файла от задача 5 и да се използва в XML файл:-->
+
+<!-- Декларираме, че ще използваме външно DTD, което се намира във файла "7.dtd"-->
+<!DOCTYPE channel SYSTEM "7.dtd">
+
+<channel version="">
+    <item>
+        <title></title>
+        <link></link>
+        <description></description>
+    </item>
+    <title></title>
+    <link></link>
+    <image src="jpgEntity">
+        <title></title>
+        <link>&site;</link>
+        <url></url>
+    </image>
+    <image src="pngEntity">
+        <title></title>
+        <link>&site;</link>
+        <url></url>
+    </image>
+    <language></language>
+    <description></description>
+</channel>

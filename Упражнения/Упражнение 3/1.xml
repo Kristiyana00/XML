@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- Създаваме root елемент collection. Задаваме пространството от имена и XML схемата, която ще използваме.-->
+<collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1.xsd">
+    <!-- Създаваме елемента Description, който носи в себе си информация за описанието.-->
+    <description>Description</description>
+    <!-- Създаваме елемента recipe, който има поделементи title, ingredient, preparation, comment и nutrition.-->
+    <recipe>
+        <!-- Създаваме елемента title, който отговаря за заглавието.-->
+        <title>Collection</title>
+        <!-- Създаваме елемента ingredient, който има задължителен атрибут name 
+             и незадължителни елементи amount и unit.-->
+        <ingredient name="" amount="" unit=""> 
+            <!-- Създаваме поделемента preparation, имащ поделемент step, който може да се среща 0 или повече пъти.-->
+            <preparation>
+                <!-- Създаваме необходимия брой step елементи.-->
+                <step>Step 1</step> 
+                <step>Step 2</step> 
+                <step>Step 3</step> 
+                <step>Step 4</step> 
+            </preparation> 
+        </ingredient>
+        <!-- Създаваме елемента preparation, имащ поделемент step, който може да се среща 0 или повече пъти. -->
+        <preparation> 
+            <!-- Създаваме необходимия брой step елементи.-->
+            <step>Step 1</step> 
+            <step>Step 2</step> 
+            <step>Step 3</step> 
+            <step>Step 4</step> 
+        </preparation> 
+        <!-- Създаваме елемента Comment.-->
+        <comment>Comment</comment> 
+        <!-- Създаваме елемента nutrition, който има задължителни атрибути 
+             protein, carbohydrates, fat, calories и незадължителен атрибут alcohol.-->
+        <nutrition fat="" protein="" calories="" carbohydrates="" alcohol=""/> 
+    </recipe> 
+</collection>

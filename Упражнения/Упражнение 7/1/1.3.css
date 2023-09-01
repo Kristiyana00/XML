@@ -1,0 +1,25 @@
+/*Делим на три части дадения ни css файл.*/
+/*Част 3.*/
+/*Импортираме другите два разделени css файла в третия.*/
+@import url('1.1.css');
+@import url('1.2.css');
+a:link {
+    color:blue;
+    background-color:white;
+    text-decoration:none
+ }
+ a:active {
+    color:blue;
+    background-color:red;
+    text-decoration:none
+ }
+ a:visited {
+    color:blue;
+    background-color:white;
+    text-decoration:none
+ }
+ a:hover {
+    color:purple;
+    background-color:yellow;
+    text-decoration:underline
+ }

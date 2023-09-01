@@ -1,0 +1,34 @@
+<!-- Създаваме root елемент book, който използва xsd схема 6.xsd.-->
+<book xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="6.xsd">
+   <!-- Създаваме елемента chapters.--> 
+   <chapters>
+      <!--Добавяме с include xml файла 6.1.xml, който да се парсне като xml.-->
+       <xi:include href="6.1.xml" parse="xml">
+          <!-- Използваме fallback да принтираме следните елементи и текст, ако не успеем да парснем резултата от Include-a.-->
+          <xi:fallback >
+             <!-- Създаваме елемент chapter.-->
+             <chapter>
+                <!-- Създаваме елемент content.-->
+                <content>
+                   <!--Принтираме N.A.-->
+                    N.A.
+                </content>
+             </chapter>
+          </xi:fallback>
+       </xi:include>
+       <!-- Добавяме с include xml файла 6.2.xml, който да се прасне като xml.-->
+       <xi:include href="6.2.xml" parse="xml">
+          <!-- Използваме fallback да принтираме следните елементи и текст, ако не успеем да парснем резултата от Include-a.-->
+          <xi:fallback >
+             <!-- Създаваме елемент chapter.-->
+             <chapter>
+                <!-- Създаваме елемент content.-->
+                <content>
+                   <!--Принтираме N.A.-->
+                    N.A.
+                </content>
+             </chapter>
+          </xi:fallback>
+       </xi:include>
+    </chapters>
+ </book>

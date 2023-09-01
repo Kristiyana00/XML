@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!-- Създаваме XML схема. Създаваме пространство от имена. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+    <!-- Редефинираме дадения xsd файл.-->
+   <xs:redefine schemaLocation="3.xsd"> 
+       <!-- Променяме рестрикцията на минималния баланс по сметката да е -5200.-->
+   	   <xs:simpleType name="minBalance"> 
+   	   	   <xs:restriction base="minBalance"> 
+   	   	   	   <xs:minInclusive value="-5200"/> 
+   	   	   </xs:restriction> 
+   	   </xs:simpleType> 
+       <!-- Добавяме нов елемент customerExt, който разширява customerExt.
+        Добавяме да има поделемент image от тип image.-->
+   	   <xs:complexType name="customerExt"> 
+   	   	   <xs:complexContent> 
+   	   	   	   <xs:extension base="customerExt"> 
+   	   	   	   	   <xs:sequence> 
+   	   	   	   	   	   <xs:element name="image" type="image"/>
+   	   	   	   	   </xs:sequence> 
+   	   	   	   </xs:extension> 
+   	   	   </xs:complexContent> 
+   	   </xs:complexType> 
+   </xs:redefine> 
+   
+   <!-- Декларираме елемента image, който има атрибут src.-->
+   <xs:complexType name="image"> 
+   	   <xs:simpleContent> 
+   	   	   <xs:extension base="xs:base64Binary"> 
+               <!-- Декларираме атрибут src от тип string, който е задължителен.-->
+   	   	   	   <xs:attribute name="src" type="xs:string" use="required"/> 
+   	   	   </xs:extension> 
+   	   </xs:simpleContent> 
+   </xs:complexType> 
+</xs:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Задача 2: Направете следните промени в xml файла от задача 1:-->
+<!-- Заменяме поделемента author с атрибут на елемента recipe.-->
+<recipe author="Анонимен">
+<name>Бисквитена торта</name>
+<!-- Правим атрибута site на елемента address негов поделемент.-->
+<address>
+<site>www.recipes.com</site>
+</address>
+<ingredients>
+<list>
+<!-- Добавяме атрибут amount към елемента item, който да показва броя или грамажа на елементите item.-->
+<item amount="1 пакет">бисквити</item>
+<item amount="1 кофичка">кисело мляко</item>
+<item amount="1 бурканче">сладко</item>
+<!-- Добавяме два нови елемента item.-->
+<item amount="100 гр.">натрошени бадеми</item>
+<item amount="1 пакетче">ванилия</item>
+</list>
+</ingredients>
+<!-- Добавяме в root елемента recipe поделемента images, който включва в себе си няколко поделемента image.-->
+<images>
+<image>https://recepti.gotvach.bg/files/lib/400x296/biskvitena-torta-kalsika.jpg</image>
+<image>https://www.oetker.bg/Recipe/Recipes/oetker.bg/bg-bg/dessert/image-thumb__69765__RecipeDetailsLightBox/biskvitena-torta-italiya.jpg</image>
+</images>
+<process>
+<p>Разбъркваме млякото и сладкото. Един ред бисквити, един ред от сместа и пак така, най-отгоре
+поръсваме орехи. Изчаква се до омекване на бисквитите.</p>
+<p><i>Много вкусно!</i></p>
+</process>
+</recipe>

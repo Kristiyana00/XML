@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- Създаваме root елемент bank. Задаваме пространството от имена и XML схемата, която ще използваме.-->
+<!-- Условие на задачата.-->
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3ext.xsd"> 
+   <accounts> 
+   	   <saving_accounts> 
+   	   	   <saving_account id="a1" interest="0.03"> 
+   	   	   	   <balance>2500</balance> 
+   	   	   </saving_account> 
+   	   	   <saving_account id="a2" interest="0.03"> 
+   	   	   	   <balance>15075</balance> 
+   	   	   </saving_account> 
+   	   </saving_accounts> 
+   	   <checking_accounts> 
+   	   	   <checking_account id="a3"> 
+   	   	   	   <balance>4025</balance> 
+   	   	   </checking_account> 
+   	   	   <checking_account id="a4"> 
+   	   	   	   <balance>-125</balance> 
+   	   	   </checking_account> 
+   	   	   <checking_account id="a5"> 
+   	   	   	   <balance>325</balance> 
+   	   	   </checking_account> 
+   	   </checking_accounts> 
+   </accounts> 
+   <customers> 
+   	   <customer id="c1"> 
+   	   	   <name>Ben Richerdson</name> 
+   	   	   <address>Park Drive 2</address> 
+           <!-- Добавяме нов елемент contacts, който има поделементи email и telephone.-->
+		   <contacts>
+                <!-- Данните в Email и Telephone трябва да отговарят на зададения регулярен израз.-->
+				<email>fmi@gmail.com</email>
+				<telephone>+359-888-265-666</telephone>
+		   </contacts>
+		   <image src="image.jpeg"/>
+   	   </customer> 
+   	   <customer id="c2"> 
+   	   	   <name>Marc Wretcher</name> 
+   	   	   <address>Mill Drive 75</address>
+			<contacts>
+				<email>uni-sofia@gmail.com</email>
+				<telephone>+359-898-265-666</telephone>
+		   </contacts> 
+		   <image src="image.jpeg"/>
+   	   </customer> 
+   	   <customer id="c3"> 
+   	   	   <name>Angel Steady</name> 
+   	   	   <address>Lake Sight 15</address> 
+			<contacts>
+				<email>sofiauni@gmail.com</email>
+				<telephone>+359-899-265-666</telephone>
+		   </contacts>
+		   <image src="image.jpeg"/>
+   	   </customer> 
+   </customers> 
+   <customer_accounts> 
+   	   <customer_account c_id="c1" ac_id="a2"/> 
+   	   <customer_account c_id="c1" ac_id="a3"/> 
+   	   <customer_account c_id="c2" ac_id="a4"/> 
+   	   <customer_account c_id="c3" ac_id="a1"/> 
+   	   <customer_account c_id="c3" ac_id="a5"/> 
+   </customer_accounts> 
+</bank>

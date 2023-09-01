@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Създаваме XML схема. Създаваме пространство от имена. Аргументът elementFormDefault="qualified" декларира, че
+     всички имена на елементи от XML екземплярите на тази
+     схема трябва да бъдат асоциирани с пространство от имена-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- Декларираме root елемента с име collection и тип collection.-->
+    <xs:element name="collection" type="collection"/>
+    <!-- Дефинираме елемента collection, който има поделементи description и recipe.-->
+    <xs:complexType name="collection">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме елемент с име description.-->
+            <xs:element name="description">
+                <!-- Задаваме complexType mixed=true => елементът може да съдържа, както текст, така и други елементи.-->
+                <xs:complexType mixed="true">
+                    <xs:sequence>
+                        <xs:any minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!-- Декларираме елемент с име recipe, който може да се среща 0 или повече пъти.-->
+            <xs:element name="recipe" type="recipe" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Дефинираме елемента recipe, който има поделементи title, ingredient, preparation, comment и nutrition.-->
+    <xs:complexType name="recipe">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме всеки един от елементите и техните типове.-->
+            <!-- Декларираме елемента title от тип string.-->
+            <xs:element name="title" type="xs:string"/>
+            <!-- Декларираме елемента ingredient от тип ingredient.-->
+            <xs:element name="ingredient" type="ingredient"/>
+            <!-- Декларираме елемента preparation от тип preparation.-->
+            <xs:element name="preparation" type="preparation"/>
+            <!-- Декларираме елемента comment от тип string, който може да се среща 0 или 1 пъти.-->
+            <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <!-- Декларираме елемента nutrition от тип nutrition.-->
+            <xs:element name="nutrition" type="nutrition"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Дефинираме елемента ingredient.-->
+    <xs:complexType name="ingredient">
+        <xs:sequence minOccurs="0">
+            <!-- Може да се среща 0 или повече пъти.-->
+            <xs:element name="ingredient" type="ingredient" minOccurs="0" maxOccurs="unbounded"/>
+            <!-- Декларираме елемента preparation от тип preparation, който се среща 0 или 1 пъти.-->
+            <xs:element name="preparation" type="preparation" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <!-- Декларираме атрибутите на ingredient - name, amount и unit.-->
+        <!-- Атрибут name от тип string, който е задължителен.-->
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <!-- Атрибут amount от тип string ,който не е задължителен.-->
+        <xs:attribute name="amount" type="xs:string"/>
+        <!-- Атрибут unit от тип string, който не е задължителен.-->
+        <xs:attribute name="unit" type="xs:string"/>
+    </xs:complexType>
+    <!-- Дефинираме елемента preparation, който има поделемент step.-->
+    <xs:complexType name="preparation">
+        <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+        <xs:sequence>
+            <!-- Декларираме елемента step от тип string, който се среща 0 или повече пъти.-->
+            <xs:element name="step" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Дефинираме елемента nutrition, който има атрибути protein, carbohydrates, fat, calories и alcohol.
+         Атрибутът alcohol не е задължителен.-->
+    <xs:complexType name="nutrition">
+        <!-- Декларираме атрибута protein от тип string, който е задължителен.-->
+        <xs:attribute name="protein" type="xs:string" use="required"/>
+        <!-- Декларираме атрибута carbohydrates от тип string, който е задължителен.-->
+        <xs:attribute name="carbohydrates" type="xs:string" use="required"/>
+        <!-- Декларираме атрибута fat от тип string, който е задължителен.-->
+        <xs:attribute name="fat" type="xs:string" use="required"/>
+        <!-- Декларираме атрибута calories от тип string, който е задължителен.-->
+        <xs:attribute name="calories" type="xs:string" use="required"/>
+        <!-- Декларираме атрибута alcohol от тип string, който не е задължителен.-->
+        <xs:attribute name="alcohol" type="xs:string"/>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Преработваме готовия rdf документ от задача 2.
+Създаваме root елемент RDF и използваме пространство от имена.-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cd="http://www.myshop.bg/cd#">
+    <!-- Създаваме Description елемент за Unchain My Heart.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Unchainmyheart"> 
+      <!-- Заменяме литералната стойност на елемента artist с референция към ресурс.-->
+      <cd:artist rdf:resource="http://www.myshop.bg/cd/Unchainmyheart/JoeCocker"/> 
+      <!-- Създаваме останалите елементи - country, company, price, year.-->
+      <cd:country>USA</cd:country> 
+      <cd:company>EMI</cd:company> 
+      <cd:price>8.20</cd:price> 
+      <cd:year>1987</cd:year> 
+   </rdf:Description> 
+   <!-- Създаваме отделен rdf:Description елемент, за да опишем новия ресурс. 
+    В него използваме елементите name, country, born, style, homepage.-->
+   <rdf:Description rdf:about="http://www.myshop.bg/cd/Unchainmyheart/JoeCocker#">
+        <!-- Създаваме елементите name, country, born, style и homepage.-->
+        <cd:name>Joe Cocker</cd:name>
+        <cd:country>USA</cd:country>
+        <cd:born>dd-mm-yyyy</cd:born>
+        <cd:style>rock</cd:style>
+        <cd:homepage>http://www.joecocker.org</cd:homepage>
+    </rdf:Description>
+
+    <!-- Създаваме Description елемент за Pavarotti Gala Concert.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/PavarottiGalaConcert"> 
+      <!-- Заменяме литералната стойност на елемента artist с референция към ресурс.-->
+      <cd:artist rdf:resource="http://www.myshop.bg/cd/PavarottiGalaConcert/LucianoPavarotti"/> 
+      <!-- Създаваме останалите елементи - country, company, price, year.-->
+      <cd:country>UK</cd:country> 
+      <cd:company>DECCA</cd:company> 
+      <cd:price>9.90</cd:price> 
+      <cd:year>1991</cd:year> 
+   </rdf:Description> 
+   <!-- Създаваме отделен rdf:Description елемент, за да опишем новия ресурс. 
+    В него използваме елементите name, country, born, style, homepage.
+    Използваме rdf:about - URI на ресурс, определен от метаданни.-->
+   <rdf:Description rdf:about="http://www.myshop.bg/cd/PavarottiGalaConcert/LucianoPavarotti#">
+        <!-- Създаваме елементите name, country, born, style и homepage.-->
+        <cd:name>Luciano Pavarotti</cd:name>
+        <cd:country>UK</cd:country>
+        <cd:born>dd-mm-yyyy</cd:born>
+        <cd:style>...</cd:style>
+        <cd:homepage>...</cd:homepage>
+    </rdf:Description>
+
+    <!-- Създаваме Description елемент за Soulsville.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Soulsville#">
+        <!-- Заменяме литералната стойност на елемента artist с референция към ресурс.-->
+        <cd:artist rdf:resource="http://www.myshop.bg/cd/Soulsville/JornHoel"/>
+        <!-- Създаваме останалите елементи - country, company, price, year.-->
+        <cd:country>Norway</cd:country>
+        <cd:company>WEA</cd:company>
+        <cd:price>7.90</cd:price>
+        <cd:year>1996</cd:year>
+    </rdf:Description>
+    <!-- Създаваме отделен rdf:Description елемент, за да опишем новия ресурс. 
+    В него използваме елементите name, country, born, style, homepage.-->
+    <rdf:Description rdf:about="http://www.myshop.bg/cd/Soulsville/JornHoel#">
+        <!-- Създаваме елементите name, country, born, style и homepage.-->
+        <cd:name>Jorn Hoel</cd:name>
+        <cd:country>Norway</cd:country>
+        <cd:born>dd-mm-yyyy</cd:born>
+        <cd:style>...</cd:style>
+        <cd:homepage>...</cd:homepage>
+    </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Задача 3: За дадената по-долу DTD граматика създайте XML документ и го валидирайте спрямо нея.-->
+
+<!DOCTYPE Courses [
+<!ELEMENT Courses (Course_Catalog)>
+<!ELEMENT Chair (Professor)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Course (Title, Description?, Instructors, Prerequisites?)>
+<!ATTLIST Course
+Number (CS106A | CS106B | CS107 | CS109 | CS124 | CS143 | CS145 | CS221 | CS228 | CS229 | EE108A | EE108B | LING180) #REQUIRED
+Enrollment (1070 | 110 | 130 | 180 | 280 | 320 | 500 | 60 | 620 | 90) #IMPLIED
+>
+<!ELEMENT Prereq (#PCDATA)>
+<!ELEMENT Lecturer (First_Name, Middle_Initial?, Last_Name)>
+<!ELEMENT Last_Name (#PCDATA)>
+<!ELEMENT Professor (First_Name, Middle_Initial?, Last_Name)>
+<!ELEMENT Department (Title, Chair, Course+)>
+<!ATTLIST Department Code (CS | EE | LING) #REQUIRED>
+<!ELEMENT First_Name (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Instructors ((Lecturer, Professor*) | (Professor+, Lecturer?))>
+<!ELEMENT Prerequisites (Prereq+)>
+<!ELEMENT Course_Catalog (Department+)>
+<!ELEMENT Middle_Initial (#PCDATA)>
+]>
+
+<!-- Създаваме root елемента Courses, който има за поделемент Course_Catalog.-->
+<Courses>
+    <!-- Създаваме елемента Course_Catalog, който има поделемент Department.
+    Елементът Department може да участва 1 или повече пъти. Има задължителен атрибут Code, който може да приема стойности "CS", "EE" или "LING".-->
+    <Course_Catalog>
+        <!-- Създаваме елемента Department с атрибут code. Department има поделементи Title, Chair и Course.
+        Поделементът Course може да участва 1 или повече пъти.-->
+        <Department Code="CS">
+            <!-- Създаваме елемента Title.-->
+            <Title></Title>
+            <!-- Създаваме елемента Chair, който съдържа в себе си поделемента Professor.-->
+            <Chair>
+                <!-- Създаваме елемента Professor, който съдържа в себе си поделементите First_Name, Middle_Initial и Last_Name.
+                Поделементът Middle_Initial може да се среща 0 или 1 пъти.-->
+                <Professor>
+                    <First_Name></First_Name>
+                    <Middle_Initial></Middle_Initial>
+                    <Last_Name></Last_Name>
+                </Professor>
+            </Chair>
+            <!-- Създаваме елемента Course със задължителен атрибут Number. Course има поделементи Title, Description, Instructors и Prerequisites.
+            Поделементите Description и Prerequisites могат да се срещат 0 или 1 пъти.-->
+            <Course Number="CS106A">
+                <!-- Създаваме елемента Title.-->
+                <Title></Title>
+                <!-- Създаваме елемента Description.-->
+                <Description></Description>
+                <!-- Създаваме елемента Instructors, който има поделементи Lecturer и Professor.-->
+                <Instructors>
+                    <!-- Създаваме елемента Lecturer, който има поделементи First_Name, Middle_Initial И Last_Name.
+                    Елементът Middle_Initial може да се среща 0 или 1 пъти.-->
+                    <Lecturer>
+                        <First_Name></First_Name>
+                        <Middle_Initial></Middle_Initial>
+                        <Last_Name></Last_Name>
+                    </Lecturer>
+                    <!-- Създаваме елемента Professor, който има поделементи First_Name, Middle_Initial И Last_Name.
+                    Елементът Middle_Initial може да се среща 0 или 1 пъти.-->
+                    <Professor>
+                        <First_Name></First_Name>
+                        <Middle_Initial></Middle_Initial>
+                        <Last_Name></Last_Name>
+                    </Professor>
+                </Instructors>
+                <!-- Създаваме елемента Prerequisites, съдържащ в себе си поделемента Prereq, който може да се среща 1 или повече пъти.-->
+                <Prerequisites>
+                    <Prereq></Prereq>
+                </Prerequisites>
+            </Course>
+        </Department>
+    </Course_Catalog>
+</Courses>

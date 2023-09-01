@@ -1,0 +1,22 @@
+<!-- Декларираме елемент shiporder, който има поделементи orderperson, shipto и item,
+като елементът item може да се среща 1 или повече пъти.-->
+<!ELEMENT shiporder (orderperson,shipto,item+)>
+<!-- Декларираме атрибут orderid на елемента shiporder, който е задължителен и е от тип CDATA.-->
+<!ATTLIST shiporder orderid CDATA #REQUIRED>
+<!-- Декларираме елемент orderperson.-->
+<!ELEMENT orderperson (#PCDATA)>
+<!-- Декларираме елемент shipto, който има поделементи name, address, city, country.-->
+<!ELEMENT shipto (name,address,city,country)>
+<!-- Декларираме елементите name, address, city, country.-->
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!-- Декларираме елемента item, който има поделементи title, note, quantity и price, 
+като елементът note може да се среща 0 или 1 пъти.-->
+<!ELEMENT item (title,note?,quantity,price)>
+<!-- Декларираме елементите title, note, quantity и price.-->
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT price (#PCDATA)>

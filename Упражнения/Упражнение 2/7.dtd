@@ -1,0 +1,40 @@
+<!-- Създаваме парамтетризирано ентити със стойност title.
+Ще го използваме навсякъде, където се среща тази дума. -->
+<!ENTITY % titleEntity "title">
+<!-- Създаваме параметризирано ентити, което обединява всички поделементи на елемента channel.-->
+<!ENTITY % channelElements "(item+, %titleEntity;, link, image*, language?, description)">
+<!-- Декларираме елемента channel, който съдържа в себе си поделементите item, title, link, image, language и description.
+В декларацията използваме entity-то channelElements.-->
+<!ELEMENT channel %channelElements;>
+<!-- Декларираме атрибут version на елемента channel, който е задължителен и е от тип CDATA.-->
+<!ATTLIST channel version CDATA #REQUIRED>
+<!-- Декларираме елемента item, който има поделементи title, link и description.
+    Поделементът description не е задължителен и може да се среща 0 или 1 пъти.
+    Поделементите на item нямат определена последователност, затова описваме всички възможни варианти.-->
+<!ELEMENT item ((%titleEntity;, link, description?) | (link, %titleEntity;, description?) |
+                (%titleEntity;, description?, link) | (link, description?, %titleEntity;) |
+                (description?, %titleEntity;, link) | (description?, link, %titleEntity;))>
+<!-- Декларираме елемента title като използваме неговото entity.-->
+<!ELEMENT %titleEntity; (#PCDATA)>
+<!-- Декларираме елемента link.-->
+<!ELEMENT link (#PCDATA)>
+<!-- Създаваме entity с име site, който отговаря на посочения долу сайт.-->
+<!ENTITY site "http://www.fmi.uni-sofia.bg/">
+<!-- Декларираме елемента image, който има поделементи title, link и url.
+    Поделементите нямат определена последователност, затова описваме всички възможни варианти.
+    Навсякъде вместо title използваме неговото entity, а именно - titleEntity.-->
+<!ELEMENT image ((%titleEntity;, link, url) | (%titleEntity;, url, link) |
+                 (link, %titleEntity;, url) | (link, url, %titleEntity;) |
+                 (url, %titleEntity;, link) | (url, link, %titleEntity;))>
+<!-- Декларираме атрибут src на елемента image, който е задължителен.-->
+<!ATTLIST image src ENTITY #REQUIRED>
+<!-- Създаваме нотация за JPG.-->
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!ENTITY jpgEntity SYSTEM "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sofia_University_-_FMI_2.jpg/1200px-Sofia_University_-_FMI_2.jpg" NDATA JPG>
+<!-- Създаваме нотация за PNG.-->
+<!NOTATION PNG PUBLIC "png" "PNG">
+<!ENTITY pngEntity PUBLIC "png" "http://libreresearchgroup.org/p/p/a/partner-su-fmi-880-450x0.png" NDATA PNG>
+<!-- Декларираме елементите url, language и description.-->
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT description (#PCDATA)>

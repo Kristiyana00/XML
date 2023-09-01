@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Създаваме root елемент RDF и използваме пространство от имена.-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cd="http://www.recshop.fake/cd">
+    <!-- Създаваме елемент Description.-->
+    <rdf:Description rdf:about="http://www.recshop.fake/cd/Beatles#">
+        <!-- За елемента artist създаваме колекция чрез rdf:parseType="Collection".
+        Колекцията поддържа описания на групи, съдържащи само определени членове.-->
+        <cd:artist rdf:parseType="Collection">
+            <!-- Създаваме елементи за всеки artist от колекцията.
+            Използваме rdf:about - URI на ресурс, определен от метаданни.-->
+            <rdf:Description rdf:about="http://www.recshop.fake/cd/Beatles/George"/>
+            <rdf:Description rdf:about="http://www.recshop.fake/cd/Beatles/John"/>
+            <rdf:Description rdf:about="http://www.recshop.fake/cd/Beatles/Paul"/>
+            <rdf:Description rdf:about="http://www.recshop.fake/cd/Beatles/Ringo"/>
+        </cd:artist>
+    </rdf:Description>
+</rdf:RDF>

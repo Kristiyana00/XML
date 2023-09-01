@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Създаваме XML схема. Създаваме пространство от имена. Аргументът elementFormDefault="qualified" декларира, че
+     всички имена на елементи от XML екземплярите на тази
+     схема трябва да бъдат асоциирани с пространство от имена-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<!-- Задаваме, че балансът на сметката не може да бъде по-малък от -5000.-->
+<xs:simpleType name="minBalance">
+    <xs:restriction base="xs:negativeInteger">
+        <xs:minInclusive value="-5000"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- Декларираме root елемента с име bank.-->
+<xs:element name="bank">
+   <xs:complexType>
+       <!-- All се използва, когато подредбата на поделементите няма значение.-->
+       <xs:all>
+           <!-- Декларираме елемента accounts, който участва минимум 1 път.-->
+           <xs:element name="accounts" minOccurs="1">
+               <xs:complexType>
+                   <!-- Поделементите на accounts нямат определена подредба.-->
+                   <xs:all>
+                       <!-- Референция към елемента saving_accounts, който е деклариран по-долу.-->
+                       <xs:element ref="saving_accounts"/>
+                       <!-- Референция към елемента checking_accounts, който е деклариран по-долу.-->
+                       <xs:element ref="checking_accounts"/>
+                   </xs:all>
+               </xs:complexType>
+           </xs:element>
+           <!-- Референция към елемента customers, който е деклариран по-долу 
+            и се среща минимум 1 път.-->
+           <xs:element ref="customers" minOccurs="1"/>
+           <!-- Референция към елемента customer_accounts, който е деклариран по-долу 
+            и се среща минимум 1 път.-->
+           <xs:element ref="customer_accounts" minOccurs="1"/>
+       </xs:all>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента name от тип string.-->
+<xs:element name="name" type="xs:string"/>
+<!-- Декларираме елемента address от тип string.-->
+<xs:element name="address" type="xs:string"/>
+<!-- Декларираме елемента balance.-->
+<xs:element name="balance"/>
+<!-- Декларираме елемента customer, който има поделементи name и address, както и атрибут id, който е задължителен.-->
+<xs:element name="customer">
+   <xs:complexType>
+       <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+       <xs:sequence>
+           <!-- Референция към елемента name, който е деклариран вече.-->
+           <xs:element ref="name"/>
+           <!-- Референция към елемента address, който е деклариран вече.-->
+           <xs:element ref="address"/>
+       </xs:sequence>
+       <!-- Декларираме атрибута id на customer, който е от тип ID и е задължителен.-->
+       <xs:attribute name="id" use="required" type="xs:ID"/>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента customers, който има поделемент customer, срещащ се повече пъти.-->
+<xs:complexType name="customers">
+   <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+   <xs:sequence>
+       <!-- Референция към елемента customer, който е деклариран вече. Среща се 1 или повече пъти.-->
+       <xs:element ref="customer" maxOccurs="unbounded"/>
+   </xs:sequence>
+</xs:complexType>
+<!-- Декларираме елемента customers от тип customers.-->
+<xs:element name="customers" type="customers"/>
+<!-- Декларираме елемента saving_account, който има поделементи balance и атрибути - id и interest.-->
+<xs:element name="saving_account">
+   <xs:complexType>
+       <!-- Създаваме sequence => елементите трябва да отговарят на зададения ред.-->
+       <xs:sequence>
+           <!-- Референция към елемента balance.-->
+           <xs:element ref="balance"/>
+       </xs:sequence>
+       <!-- Декларираме атрибута id от тип ID, който е задължителен.-->
+       <xs:attribute name="id" use="required" type="xs:ID"/>
+       <!-- Декларираме атрибута interest от тип decimal.-->
+       <xs:attribute name="interest" type="xs:decimal"/>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента checking_account, който има поделемент balance и атрибут id, който е задължителен.-->
+<xs:element name="checking_account">
+   <xs:complexType>
+       <xs:sequence>
+           <!-- Референция към елемента balance.-->
+           <xs:element ref="balance"/>
+       </xs:sequence>
+       <!-- Декларираме атрибут id от тип ID, който е задължителен.-->
+       <xs:attribute name="id" use="required" type="xs:ID"/>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента customer_account, който има атрибути c_id и ac_id, които са задължителни.-->
+<xs:element name="customer_account">
+   <xs:complexType>
+       <!-- Декларираме атрибута c_id от тип IDREF, който е задължителен.-->
+       <xs:attribute name="c_id" use="required" type="xs:IDREF"/>
+       <!-- Декларираме атрибута ac_id от тип IDREF, който е задължителен.-->
+       <xs:attribute name="ac_id" use="required" type="xs:IDREF"/>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента saving_accounts, който има поделемент saving_account, срещащ се 1 или повече пъти.-->
+<xs:element name="saving_accounts">
+   <xs:complexType>
+       <xs:sequence>
+           <!-- Референция към елемента saving_account, който се среща 1 или повече пъти.-->
+           <xs:element ref="saving_account" maxOccurs="unbounded"/>
+       </xs:sequence>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента checking_accounts, който има поделемент checking_account, срещащ се 1 или повече пъти.-->
+<xs:element name="checking_accounts">
+   <xs:complexType>
+       <xs:sequence>
+           <!-- Референция към елемента checking_account, който се среща 1 или повече пъти.-->
+           <xs:element ref="checking_account" maxOccurs="unbounded"/>
+       </xs:sequence>
+   </xs:complexType>
+</xs:element>
+<!-- Декларираме елемента customer_accounts, който има поделемент customer_account, срещащ се 1 или повече пъти.-->
+<xs:element name="customer_accounts">
+   <xs:complexType>
+       <xs:sequence>
+           <!-- Референция към елемента customer_account, който се среща 1 или повече пъти.-->
+           <xs:element ref="customer_account" maxOccurs="unbounded"/>
+       </xs:sequence>
+   </xs:complexType>
+</xs:element>
+</xs:schema> 
