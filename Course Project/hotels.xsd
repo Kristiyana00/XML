@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="Bulgaria">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="Regions" maxOccurs="unbounded"/>
+			<xs:element ref="Hotels" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:key name="regionKey">
+		<xs:selector xpath="./Regions/Region"/>
+		<xs:field xpath="@ID"/>
+	</xs:key>
+	<xs:keyref name="regionReference" refer="regionKey">
+		<xs:selector xpath="./Hotel"/>
+		<xs:field xpath="./@region"/>
+	</xs:keyref>
+
+</xs:element>
+
+<xs:element name="Regions">
+	<xs:complexType>
+		<xs:sequence>
+				<xs:element ref="Region" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="country" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="Region">
+	<xs:complexType>
+		<xs:attribute name="ID" use="required" type="xs:string"/>
+		<xs:attribute name="Title" use="required" type="xs:string"/>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="Hotels">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="Hotel" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="Hotel">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="Name"/>
+			<xs:element ref="City"/>
+			<xs:element ref="Category"/>
+			<xs:element ref="Description"/>
+			<xs:element ref="Rooms"/>
+			<xs:element ref="Extras"/>
+			<xs:element ref="site"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9]{4}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="region" use="required" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	<xs:key name="IDKey">
+		<xs:selector xpath="Bulgaria/Regions/Hotels/Hotel"/>
+		<xs:field xpath="@ID"/>
+	</xs:key>
+</xs:element>
+
+
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="City" type="xs:string"/>
+<xs:element name="Description" type="xs:string"/>
+<xs:element name="Category">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="*"/>
+				<xs:enumeration value="**"/>
+				<xs:enumeration value="***"/>
+				<xs:enumeration value="****"/>
+				<xs:enumeration value="*****"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+<xs:element name="Rooms" type="xs:positiveInteger"/>
+<xs:element name="Extras">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Pool"/>
+				<xs:element ref="WiFi"/>
+				<xs:element ref="TV"/>
+				<xs:element ref="SPA"/>
+				<xs:element ref="Restaurant"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Pool">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Да"/>
+				<xs:enumeration value="Не"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WiFi">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Да"/>
+				<xs:enumeration value="Не"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TV">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Да"/>
+				<xs:enumeration value="Не"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SPA">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Да"/>
+				<xs:enumeration value="Не"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Restaurant">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Да"/>
+				<xs:enumeration value="Не"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+<xs:element name="site">
+	<xs:complexType>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="href" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>

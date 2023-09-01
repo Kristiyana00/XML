@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="hotels.xsl"?>
+
+<Bulgaria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hotels.xsd">
+      <Regions country="Bulgaria">	
+		<Region ID="1" Title="Северозападен"/>
+		<Region ID="2" Title="Югозападен"/>
+		<Region ID="3" Title="Североизточен"/>
+		<Region ID="4" Title="Югоизточен"/>
+	</Regions>
+      <Hotels>
+            <!-- Югоизточен регион.-->
+            <Hotel id="1000" region="4">
+                  <Name>Laguna Beach Resort and Spa</Name>
+                  <City>Созопол</City>
+                  <Category>****</Category>
+                  <Description>
+                        СПА комплекс Лагуна Бийч предлага тихо местоположение на пясъчния плаж край Созопол. Предлага стаи с безплатен достъп до интернет, безплатен паркинг и панорамна гледка към Черноморското крайбрежие.
+СПА зоната на Лагуна Бийч включва 400 квадратни метра сауни, басейни, парни бани, хидромасажни вани, фитнес зала и стаи за процедури. При заявка се предлагат масажи и козметични терапии.
+                  </Description>
+                  <Rooms>400</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://lagunabeachresort.net/bg/"></site>
+            </Hotel>
+            <Hotel id="1001" region="4">
+                  <Name>Примеа Бийч Резиденс</Name>
+                  <City>Царево</City>
+                  <Category>***</Category>
+                  <Description>
+                        Primea Beach Residence се намира в най-живописната част на град Царево – на просторния и атрактивен плаж Нестинарка и предлага открит басейн и ресторант, а също помещения за настаняване с безплатен достъп до WiFi.
+Климатизираните апартаменти в Примеа Бийч Резидънс разполагат с плоскоекранен телевизор с кабелни канали, хладилник и баня с душ, безплатни тоалетни принадлежности и кърпи. От балкона се открива изглед към морето.
+                  </Description>
+                  <Rooms>200</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="http://primea.bg/"></site>
+            </Hotel>
+            <!-- Североизточен регион.-->
+            <Hotel id="1002" region="3">
+                  <Name>International Hotel Casino &amp; Tower Suites</Name>
+                  <City>Варна/к.к-с. Златни пясъци</City>
+                  <Category>*****</Category>
+                  <Description>
+                        ИНТЕРНАЦИОНАЛ Хотел Казино &amp; Тауър Суитс се намира в сърцето на комплекс Златни пясъци и е само на метри от плажната ивица.
+Гледката пред очите ви ще бъде изпълнена с красота и стил, докато се наслаждавате на изключителен комфорт в спокойна атмосфера, заобиколени от стил и уют.
+                  </Description>
+                  <Rooms>325</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://www.hotelcasinointernational.com/bg"></site>
+            </Hotel>
+            <Hotel id="1003" region="3">
+                  <Name>Hotel &amp; Casino Cherno More</Name>
+                  <City>Варна</City>
+                  <Category>****</Category>
+                  <Description>
+                        Hotel &amp; Casino Cherno More се намира в центъра на Варна и предлага климатизирани стаи с безплатен WiFi и панорамна гледка. Плажът е на 450 метра, а Морската градина е на 300 метра.
+Всяка стая разполага с телевизор с кабелни канали и минибар.Жп гара Варна е на 2 километра, а летище Варна се намира на 10 километра. Много от историческите и културни забележителности на града, като Операта, Художествената галерия и Археологическият музей, са на по-малко от 10 минути пеша от хотела.
+                  </Description>
+                  <Rooms>325</Rooms>
+                  <Extras>
+                        <Pool>Не</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Не</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://www.chernomorebg.com/"></site>
+            </Hotel>
+            <!-- Северозападен регион.-->
+            <Hotel id="1004" region="1">
+                  <Name>Хотел Анна-Кристина</Name>
+                  <City>Видин</City>
+                  <Category>***</Category>
+                  <Description>
+                        Тази защитена историческа сграда се намира в центъра на Видин само на 50 метра от река Дунав и на 10 минути пеша от крепостта Баба Вида. Той предлага открит басейн, климатизирани стаи, ресторант и безплатен частен паркинг.
+				Във всяка стая в хотел Анна-Кристина има телевизор с плосък екран с кабелни програми, безплатен минибар и самостоятелна баня с безплатни тоалетни принадлежности и сешоар.
+                  </Description>
+                  <Rooms>20</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Не</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://annakristinahotel.com/bg/"></site>
+            </Hotel>
+            <Hotel id="1005" region="1">
+                  <Name>Impuls hotel &amp; SPA</Name>
+                  <City>Видин</City>
+                  <Category>***</Category>
+                  <Description>
+                        Impuls Hotel &amp; SPA се намира във Видин и предлага ресторант, бар, общ салон и СПА и уелнес център. На разположение на гостите има фамилни стаи и тераса. Хотелът разполага със сауна, аниматорски екип и денонощна рецепция.
+                  </Description>
+                  <Rooms>40</Rooms>
+                  <Extras>
+                        <Pool>Не</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://pochivka.bg/impuls-hotel-i-spa-o51375"></site>
+            </Hotel>
+            <!-- Югозападен регион-->
+            <Hotel id="1006" region="2">
+                  <Name>Sofia Hotel Balkan</Name>
+                  <City>София</City>
+                  <Category>*****</Category>
+                  <Description>
+                        Пет-звездният Шератон София Хотел Балкан, великолепно реновиран и превърнал се символ на столицата, е идеално разположен в сърцето на София, в самия административни, бизнес и шопинг център, близо до катедралата Александър Невски, операта, художествената галерия и историческите забележителности.
+                  </Description>
+                  <Rooms>200</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://sofiabalkan.net/"></site>
+            </Hotel>
+            <Hotel id="1007" region="2">
+                  <Name>InterContinental Sofia</Name>
+                  <City>София</City>
+                  <Category>*****</Category>
+                  <Description>
+                        InterContinental Sofia се намира в центъра на София и разполага с 2 ресторанта, денонощен фитнес център, отворен през цялата седмица и изглед към града и планината. Местоположението на хотела осигурява лесен достъп до основните исторически и културни сгради, както и до търговската зона. Сред предлаганите удобства са консиерж обслужване, билетни услуги и безплатен WiFi във всички части. 
+                  </Description>
+                  <Rooms>194</Rooms>
+                  <Extras>
+                        <Pool>Да</Pool>
+				<WiFi>Да</WiFi>
+				<TV>Да</TV>
+				<SPA>Да</SPA>
+				<Restaurant>Да</Restaurant>
+                  </Extras>
+                  <site href="https://www.ihg.com/intercontinental/hotels/us/en/reservation"></site>
+            </Hotel>
+      </Hotels>
+</Bulgaria>
